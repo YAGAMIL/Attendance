@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aku.attendance.system.dao.RuleDao">
+    <resultMap id="BaseResultMap" type="com.aku.attendance.common.model.Rule">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="sign_in_time" jdbcType="TIME" property="signInTime"/>
+        <result column="sign_out_time" jdbcType="TIME" property="signOutTime"/>
+        <result column="half_day" jdbcType="INTEGER" property="halfDay"/>
+        <result column="all_day" jdbcType="INTEGER" property="allDay"/>
+        <result column="min_unit" jdbcType="DOUBLE" property="minUnit"/>
+        <result column="submit_time" jdbcType="INTEGER" property="submitTime"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_user" jdbcType="VARCHAR" property="createUser"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+        <result column="is_delete" jdbcType="BIT" property="isDelete"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, sign_in_time, sign_out_time, half_day, all_day, min_unit, submit_time, create_time,
+    create_user, update_time, update_user, is_delete
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from rule
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from rule
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.aku.attendance.common.model.Rule" useGeneratedKeys="true">
+        insert into rule (sign_in_time, sign_out_time, half_day,
+                          all_day, min_unit, submit_time,
+                          create_time, create_user, update_time,
+                          update_user, is_delete)
+        values (#{signInTime,jdbcType=TIME}, #{signOutTime,jdbcType=TIME}, #{halfDay,jdbcType=INTEGER},
+                #{allDay,jdbcType=INTEGER}, #{minUnit,jdbcType=DOUBLE}, #{submitTime,jdbcType=INTEGER},
+                #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP},
+                #{updateUser,jdbcType=VARCHAR}, #{isDelete,jdbcType=BIT})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.aku.attendance.common.model.Rule" useGeneratedKeys="true">
+        insert into rule
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="signInTime != null">
+                sign_in_time,
+            </if>
+            <if test="signOutTime != null">
+                sign_out_time,
+            </if>
+            <if test="halfDay != null">
+                half_day,
+            </if>
+            <if test="allDay != null">
+                all_day,
+            </if>
+            <if test="minUnit != null">
+                min_unit,
+            </if>
+            <if test="submitTime != null">
+                submit_time,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createUser != null">
+                create_user,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="updateUser != null">
+                update_user,
+            </if>
+            <if test="isDelete != null">
+                is_delete,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="signInTime != null">
+                #{signInTime,jdbcType=TIME},
+            </if>
+            <if test="signOutTime != null">
+                #{signOutTime,jdbcType=TIME},
+            </if>
+            <if test="halfDay != null">
+                #{halfDay,jdbcType=INTEGER},
+            </if>
+            <if test="allDay != null">
+                #{allDay,jdbcType=INTEGER},
+            </if>
+            <if test="minUnit != null">
+                #{minUnit,jdbcType=DOUBLE},
+            </if>
+            <if test="submitTime != null">
+                #{submitTime,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                #{createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateUser != null">
+                #{updateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="isDelete != null">
+                #{isDelete,jdbcType=BIT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.aku.attendance.common.model.Rule">
+        update rule
+        <set>
+            <if test="signInTime != null">
+                sign_in_time = #{signInTime,jdbcType=TIME},
+            </if>
+            <if test="signOutTime != null">
+                sign_out_time = #{signOutTime,jdbcType=TIME},
+            </if>
+            <if test="halfDay != null">
+                half_day = #{halfDay,jdbcType=INTEGER},
+            </if>
+            <if test="allDay != null">
+                all_day = #{allDay,jdbcType=INTEGER},
+            </if>
+            <if test="minUnit != null">
+                min_unit = #{minUnit,jdbcType=DOUBLE},
+            </if>
+            <if test="submitTime != null">
+                submit_time = #{submitTime,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateUser != null">
+                update_user = #{updateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="isDelete != null">
+                is_delete = #{isDelete,jdbcType=BIT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.aku.attendance.common.model.Rule">
+        update rule
+        set sign_in_time  = #{signInTime,jdbcType=TIME},
+            sign_out_time = #{signOutTime,jdbcType=TIME},
+            half_day      = #{halfDay,jdbcType=INTEGER},
+            all_day       = #{allDay,jdbcType=INTEGER},
+            min_unit      = #{minUnit,jdbcType=DOUBLE},
+            submit_time   = #{submitTime,jdbcType=INTEGER},
+            create_time   = #{createTime,jdbcType=TIMESTAMP},
+            create_user   = #{createUser,jdbcType=VARCHAR},
+            update_time   = #{updateTime,jdbcType=TIMESTAMP},
+            update_user   = #{updateUser,jdbcType=VARCHAR},
+            is_delete     = #{isDelete,jdbcType=BIT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

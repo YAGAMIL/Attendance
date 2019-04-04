@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aku.attendance.system.dao.ApprovalDao">
+    <resultMap id="BaseResultMap" type="com.aku.attendance.common.model.Approval">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="user_id" jdbcType="BIGINT" property="userId"/>
+        <result column="tutor_id" jdbcType="BIGINT" property="tutorId"/>
+        <result column="attendance_record_id" jdbcType="BIGINT" property="attendanceRecordId"/>
+        <result column="forget_time" jdbcType="TIMESTAMP" property="forgetTime"/>
+        <result column="forget_type" jdbcType="INTEGER" property="forgetType"/>
+        <result column="apply_time" jdbcType="TIMESTAMP" property="applyTime"/>
+        <result column="approval_status" jdbcType="INTEGER" property="approvalStatus"/>
+        <result column="approval_type" jdbcType="INTEGER" property="approvalType"/>
+        <result column="confirm" jdbcType="INTEGER" property="confirm"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_user" jdbcType="VARCHAR" property="createUser"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+        <result column="is_delete" jdbcType="BIT" property="isDelete"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, user_id, tutor_id, attendance_record_id, forget_time, forget_type, apply_time,
+        approval_status, approval_type, confirm, create_time, create_user, update_time, update_user,
+        is_delete
+    </sql>
+</mapper>

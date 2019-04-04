@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="LOG_HOME" value="./log/postoffice"/>
+    <property name="SERVER_NAME" value="postoffice"/>
+    <!-- 控制台输出-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[postoffice][%-5p] [%d{yyyy-MM-dd JJ:mm:ss.SSS}] [%C{1}:%M:%L] [%thread] %m%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <!-- 开发、测试、预生产、线上环境输出日志到文件-->
+    <springProfile name="dev,test,pre,prd">
+        <appender name="TRACE_LOG_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${LOG_HOME}/${SERVER_NAME}.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${LOG_HOME}/${SERVER_NAME}.%d{yyyy-MM-dd}.log</fileNamePattern>
+                <maxHistory>30</maxHistory>
+            </rollingPolicy>
+            <encoder>
+                <!-- pattern节点，用来设置日志的输入格式 -->
+                <pattern>[postoffice][%-5p] [%d{yyyy-MM-dd JJ:mm:ss.SSS}] [%C{1}:%M:%L] [%thread] %m%n</pattern>
+                <charset>UTF-8</charset>
+            </encoder>
+        </appender>
+    </springProfile>
+
+    <springProfile name="dev,test">
+        <root level="INFO">
+            <appender-ref ref="STDOUT"/>
+            <appender-ref ref="TRACE_LOG_APPENDER"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="junit">
+        <root level="INFO">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="test,pre,prd">
+        <root level="INFO">
+            <appender-ref ref="TRACE_LOG_APPENDER"/>
+        </root>
+    </springProfile>
+</configuration>

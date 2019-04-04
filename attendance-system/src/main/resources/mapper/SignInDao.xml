@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aku.attendance.common.model.SignInDao">
+    <resultMap id="BaseResultMap" type="com.aku.attendance.common.model.SignIn">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="user_id" jdbcType="BIGINT" property="userId"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="sign_in_time" jdbcType="TIMESTAMP" property="signInTime"/>
+        <result column="late" jdbcType="INTEGER" property="late"/>
+        <result column="work_area" jdbcType="VARCHAR" property="workArea"/>
+        <result column="work_area_id" jdbcType="BIGINT" property="workAreaId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_user" jdbcType="VARCHAR" property="createUser"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+        <result column="is_delete" jdbcType="BIT" property="isDelete"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, user_id, username, sign_in_time, late, workarea, workarea_id, create_time, create_user,
+    update_time, update_user, is_delete
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sign_in
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from sign_in
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.aku.attendance.common.model.SignIn" useGeneratedKeys="true">
+        insert into sign_in (user_id, username, sign_in_time,
+                             late, work_area, work_area_id,
+                             create_time, create_user, update_time,
+                             update_user, is_delete)
+        values (#{userId,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{signInTime,jdbcType=TIMESTAMP},
+                #{late,jdbcType=INTEGER}, #{workarea,jdbcType=VARCHAR}, #{workareaId,jdbcType=BIGINT},
+                #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP},
+                #{updateUser,jdbcType=VARCHAR}, #{isDelete,jdbcType=BIT})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.aku.attendance.common.model.SignIn" useGeneratedKeys="true">
+        insert into sign_in
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="username != null">
+                username,
+            </if>
+            <if test="signInTime != null">
+                sign_in_time,
+            </if>
+            <if test="late != null">
+                late,
+            </if>
+            <if test="workarea != null">
+                workarea,
+            </if>
+            <if test="workareaId != null">
+                workarea_id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createUser != null">
+                create_user,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="updateUser != null">
+                update_user,
+            </if>
+            <if test="isDelete != null">
+                is_delete,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="signInTime != null">
+                #{signInTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="late != null">
+                #{late,jdbcType=INTEGER},
+            </if>
+            <if test="workarea != null">
+                #{workarea,jdbcType=VARCHAR},
+            </if>
+            <if test="workareaId != null">
+                #{workareaId,jdbcType=BIGINT},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                #{createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateUser != null">
+                #{updateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="isDelete != null">
+                #{isDelete,jdbcType=BIT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.aku.attendance.common.model.SignIn">
+        update sign_in
+        <set>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="signInTime != null">
+                sign_in_time = #{signInTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="late != null">
+                late = #{late,jdbcType=INTEGER},
+            </if>
+            <if test="workarea != null">
+                workarea = #{workarea,jdbcType=VARCHAR},
+            </if>
+            <if test="workareaId != null">
+                workarea_id = #{workareaId,jdbcType=BIGINT},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateUser != null">
+                update_user = #{updateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="isDelete != null">
+                is_delete = #{isDelete,jdbcType=BIT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.aku.attendance.common.model.SignIn">
+        update sign_in
+        set user_id      = #{userId,jdbcType=BIGINT},
+            username     = #{username,jdbcType=VARCHAR},
+            sign_in_time = #{signInTime,jdbcType=TIMESTAMP},
+            late         = #{late,jdbcType=INTEGER},
+            work_area    = #{workarea,jdbcType=VARCHAR},
+            work_area_id = #{workareaId,jdbcType=BIGINT},
+            create_time  = #{createTime,jdbcType=TIMESTAMP},
+            create_user  = #{createUser,jdbcType=VARCHAR},
+            update_time  = #{updateTime,jdbcType=TIMESTAMP},
+            update_user  = #{updateUser,jdbcType=VARCHAR},
+            is_delete    = #{isDelete,jdbcType=BIT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

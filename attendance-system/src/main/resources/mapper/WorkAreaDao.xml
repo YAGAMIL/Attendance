@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aku.attendance.system.dao.WorkAreaDao">
+    <resultMap id="BaseResultMap" type="com.aku.attendance.common.model.WorkArea">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="work_area_name" jdbcType="VARCHAR" property="workAreaName"/>
+        <result column="company_id" jdbcType="INTEGER" property="companyId"/>
+        <result column="latitude" jdbcType="DECIMAL" property="latitude"/>
+        <result column="longitude" jdbcType="DECIMAL" property="longitude"/>
+        <result column="province" jdbcType="VARCHAR" property="province"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="region" jdbcType="VARCHAR" property="region"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="scope" jdbcType="INTEGER" property="scope"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_user" jdbcType="VARCHAR" property="createUser"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="update_name" jdbcType="VARCHAR" property="updateUser"/>
+        <result column="is_delete" jdbcType="BIT" property="isDelete"/>
+        <result column="manager" jdbcType="VARCHAR" property="manager"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, work_area_name, company_id, latitude, longitude, province, city, region, address,
+        `scope`, create_time, create_user, update_time, update_name, is_delete, manager
+    </sql>
+
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.aku.attendance.common.model.WorkArea"
+            useGeneratedKeys="true">
+        insert into work_area (work_area_name, company_id, latitude,
+                               longitude, province, city,
+                               region, address, `scope`,
+                               create_time, create_user, update_time,
+                               update_user, is_delete, manager)
+        values (#{workareaName,jdbcType=VARCHAR}, #{companyId,jdbcType=INTEGER}, #{latitude,jdbcType=DECIMAL},
+                #{longitude,jdbcType=DECIMAL}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR},
+                #{region,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{scope,jdbcType=INTEGER},
+                #{createTime,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP},
+                #{updateName,jdbcType=VARCHAR}, #{isDelete,jdbcType=BIT}, #{manager,jdbcType=VARCHAR})
+    </insert>
+</mapper>

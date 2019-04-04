@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aku.attendance.system.dao.AnnouncementDao">
+<resultMap id="BaseResultMap" type="com.aku.attendance.common.model.Announcement">
+    <id column="id" jdbcType="BIGINT" property="id"/>
+    <result column="title" jdbcType="VARCHAR" property="title"/>
+    <result column="content" jdbcType="VARCHAR" property="content"/>
+    <result column="manager_id" jdbcType="BIGINT" property="managerId"/>
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+    <result column="create_user" jdbcType="VARCHAR" property="createUser"/>
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    <result column="is_delete" jdbcType="BIT" property="isDelete"/>
+</resultMap>
+<sql id="Base_Column_List">
+    id, title, content, manager_id, create_time, create_user, update_user, update_time,
+    is_delete
+</sql>
+<!--<select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from announcement
+    where id = #{id,jdbcType=BIGINT}
+</select>
+<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete
+    from announcement
+    where id = #{id,jdbcType=BIGINT}
+</delete>-->
+<!--<insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.aku.attendance.common.model.Announcement"
+        useGeneratedKeys="true">
+    insert into announcement (title, content, manager_id,
+                              create_time, create_user, update_user,
+                              update_time, is_delete)
+    values (#{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{managerId,jdbcType=BIGINT},
+            #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR},
+            #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIT})
+</insert>-->
+<!--<insert id="insertSelective" keyColumn="id" keyProperty="id"
+        parameterType="com.aku.attendance.common.model.Announcement" useGeneratedKeys="true">
+    insert into announcement
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="title != null">
+            title,
+        </if>
+        <if test="content != null">
+            content,
+        </if>
+        <if test="managerId != null">
+            manager_id,
+        </if>
+        <if test="createTime != null">
+            create_time,
+        </if>
+        <if test="createUser != null">
+            create_user,
+        </if>
+        <if test="updateUser != null">
+            update_user,
+        </if>
+        <if test="updateTime != null">
+            update_time,
+        </if>
+        <if test="isDelete != null">
+            is_delete,
+        </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="title != null">
+            #{title,jdbcType=VARCHAR},
+        </if>
+        <if test="content != null">
+            #{content,jdbcType=VARCHAR},
+        </if>
+        <if test="managerId != null">
+            #{managerId,jdbcType=BIGINT},
+        </if>
+        <if test="createTime != null">
+            #{createTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="createUser != null">
+            #{createUser,jdbcType=VARCHAR},
+        </if>
+        <if test="updateUser != null">
+            #{updateUser,jdbcType=VARCHAR},
+        </if>
+        <if test="updateTime != null">
+            #{updateTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="isDelete != null">
+            #{isDelete,jdbcType=BIT},
+        </if>
+    </trim>
+</insert>
+<update id="updateByPrimaryKeySelective" parameterType="com.aku.attendance.common.model.Announcement">
+    update announcement
+    <set>
+        <if test="title != null">
+            title = #{title,jdbcType=VARCHAR},
+        </if>
+        <if test="content != null">
+            content = #{content,jdbcType=VARCHAR},
+        </if>
+        <if test="managerId != null">
+            manager_id = #{managerId,jdbcType=BIGINT},
+        </if>
+        <if test="createTime != null">
+            create_time = #{createTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="createUser != null">
+            create_user = #{createUser,jdbcType=VARCHAR},
+        </if>
+        <if test="updateUser != null">
+            update_user = #{updateUser,jdbcType=VARCHAR},
+        </if>
+        <if test="updateTime != null">
+            update_time = #{updateTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="isDelete != null">
+            is_delete = #{isDelete,jdbcType=BIT},
+        </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+</update>
+<update id="updateByPrimaryKey" parameterType="com.aku.attendance.common.model.Announcement">
+    update announcement
+    set title       = #{title,jdbcType=VARCHAR},
+        content     = #{content,jdbcType=VARCHAR},
+        manager_id  = #{managerId,jdbcType=BIGINT},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        create_user = #{createUser,jdbcType=VARCHAR},
+        update_user = #{updateUser,jdbcType=VARCHAR},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        is_delete   = #{isDelete,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+</update>-->
+</mapper>

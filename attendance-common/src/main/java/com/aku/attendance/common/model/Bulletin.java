@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @TableName("announcement")
-public class Announcement extends BaseModel {
+public class Bulletin extends BaseModel {
 
   /** 标题 */
   private String title;

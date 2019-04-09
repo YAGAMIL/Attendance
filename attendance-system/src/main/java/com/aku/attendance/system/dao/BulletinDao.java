@@ -1,6 +1,6 @@
 package com.aku.attendance.system.dao;
 
-import com.aku.attendance.common.model.Announcement;
+import com.aku.attendance.common.model.Bulletin;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -11,4 +11,4 @@ import org.apache.ibatis.annotations.Mapper;
  * @version 1.0
  */
 @Mapper
-public interface AnnouncementDao extends BaseMapper<Announcement> {}
+public interface BulletinDao extends BaseMapper<Bulletin> {}

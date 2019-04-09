@@ -29,13 +29,4 @@ public class ResultBean<T> implements Serializable {
   public static <T> ResultBean of(T data) {
     return new ResultBean(ResultEnum.SUCCESS.getCode(), ResultEnum.SUCCESS.getMessage(), data);
   }
-  //  private static final int SUCCESS = 0;
-  //+-
-  //  private static final int FAIL = -1;
-  //
-  //  private String message = "SUCCESS";
-  //
-  //  private int code = SUCCESS;
-  //
-  //  private ResultEnum resultEnum;
 }

@@ -1,5 +1,8 @@
 package com.aku.attendance.common.base.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
@@ -19,6 +22,7 @@ public class BaseModel implements Serializable {
   private static final long serialVersionUID = 1L;
 
   /** 主键id */
+  @TableId(type = IdType.AUTO)
   private Long id;
 
   /** 创建时间 */
@@ -34,5 +38,5 @@ public class BaseModel implements Serializable {
   private String updateUser;
 
   /** 是否有效0无效，1有效 */
-  private Boolean isDelete;
+  @TableLogic private Boolean isDelete;
 }

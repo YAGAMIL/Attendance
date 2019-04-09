@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.aku.attendance.system.dao.AnnouncementDao">
-<resultMap id="BaseResultMap" type="com.aku.attendance.common.model.Announcement">
+<mapper namespace="com.aku.attendance.system.dao.BulletinDao">
+<resultMap id="BaseResultMap" type="com.aku.attendance.common.model.Bulletin">
     <id column="id" jdbcType="BIGINT" property="id"/>
     <result column="title" jdbcType="VARCHAR" property="title"/>
     <result column="content" jdbcType="VARCHAR" property="content"/>
@@ -27,8 +27,7 @@
     from announcement
     where id = #{id,jdbcType=BIGINT}
 </delete>-->
-<!--<insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.aku.attendance.common.model.Announcement"
-        useGeneratedKeys="true">
+<!--<insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.aku.attendance.common.model.Bulletin      useGeneratedKeys="true">
     insert into announcement (title, content, manager_id,
                               create_time, create_user, update_user,
                               update_time, is_delete)
@@ -37,7 +36,7 @@
             #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIT})
 </insert>-->
 <!--<insert id="insertSelective" keyColumn="id" keyProperty="id"
-        parameterType="com.aku.attendance.common.model.Announcement" useGeneratedKeys="true">
+        parameterType="com.aku.attendance.common.model.BulletineGeneratedKeys="true">
     insert into announcement
     <trim prefix="(" suffix=")" suffixOverrides=",">
         <if test="title != null">
@@ -92,8 +91,7 @@
         </if>
     </trim>
 </insert>
-<update id="updateByPrimaryKeySelective" parameterType="com.aku.attendance.common.model.Announcement">
-    update announcement
+<update id="updateByPrimaryKeySelective" parameterType="com.aku.attendance.common.model.Bulletin   update announcement
     <set>
         <if test="title != null">
             title = #{title,jdbcType=VARCHAR},
@@ -122,8 +120,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
 </update>
-<update id="updateByPrimaryKey" parameterType="com.aku.attendance.common.model.Announcement">
-    update announcement
+<update id="updateByPrimaryKey" parameterType="com.aku.attendance.common.model.Bulletin   update announcement
     set title       = #{title,jdbcType=VARCHAR},
         content     = #{content,jdbcType=VARCHAR},
         manager_id  = #{managerId,jdbcType=BIGINT},

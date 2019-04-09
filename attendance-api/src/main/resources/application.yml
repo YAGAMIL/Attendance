@@ -1,4 +1,9 @@
 spring:
+  mail:
+    host: smtp.163.com
+    username: 15592991875@163.com
+    password: TabloJhin1996163
+    default-encoding: utf-8
   redis:
     host: localhost
     password: 236375
@@ -39,12 +44,15 @@ logging:
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
       field-strategy: not_empty
       id-type: auto
       logic-delete-value: 0
       logic-not-delete-value: 1
+      db-type: mysql
   #  mapper-locations: classpath*:mapping/*.xml
+  type-aliases-package: com.aku.attendance.common.model
   mapper-locations: classpath*:*Mapper/*.xml
-  type-aliases-package:

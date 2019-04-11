@@ -1,12 +1,12 @@
 package com.aku.attendance.system.service.impl;
 
-import com.aku.attendance.common.model.User;
-import com.aku.attendance.system.dao.UserDao;
-import com.aku.attendance.system.service.IUserService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.TableFieldInfo;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
+        import com.aku.attendance.common.model.User;
+        import com.aku.attendance.system.dao.UserDao;
+        import com.aku.attendance.system.service.IUserService;
+        import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+        import com.baomidou.mybatisplus.core.metadata.TableFieldInfo;
+        import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+        import org.springframework.stereotype.Service;
 
 /**
  * Description:用户业务实现 Program:Attendance Created on 2019-03-19 18:03
@@ -30,12 +30,12 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements IUser
   public boolean checkUser(User user) {
     QueryWrapper<User> queryWrapper = new QueryWrapper<>();
     queryWrapper
-        .lambda()
-        .eq(User::getEmail, user.getEmail())
-        .or()
-        .eq(User::getPhone, user.getPhone())
-        .or()
-        .eq(User::getIdentify, user.getIdentify());
+            .lambda()
+            .eq(User::getEmail, user.getEmail())
+            .or()
+            .eq(User::getPhone, user.getPhone())
+            .or()
+            .eq(User::getIdentify, user.getIdentify());
     return count(queryWrapper) <= 0;
   }
 

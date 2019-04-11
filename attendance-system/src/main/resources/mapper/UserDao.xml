@@ -1,253 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="generator.UserDao">
-  <resultMap id="BaseResultMap" type="com.aku.attendance.common.model.User">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="identify" jdbcType="VARCHAR" property="identify" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="gender" jdbcType="INTEGER" property="gender" />
-    <result column="age" jdbcType="INTEGER" property="age" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="salt" jdbcType="VARCHAR" property="salt" />
-    <result column="super_id" jdbcType="BIGINT" property="superId" />
-    <result column="company_id" jdbcType="BIGINT" property="companyId" />
-    <result column="work_area_id" jdbcType="BIGINT" property="workAreaId" />
-    <result column="join_time" jdbcType="DATE" property="joinTime" />
-    <result column="leave_time" jdbcType="DATE" property="leaveTime" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
-    <result column="is_delete" jdbcType="BIT" property="isDelete" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, username, identify, phone, email, gender, age, `password`, salt, super_id, company_id,
+    <resultMap id="BaseResultMap" type="com.aku.attendance.common.model.User">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="identify" jdbcType="VARCHAR" property="identify"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="gender" jdbcType="INTEGER" property="gender"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="salt" jdbcType="VARCHAR" property="salt"/>
+        <result column="super_id" jdbcType="BIGINT" property="superId"/>
+        <result column="company_id" jdbcType="BIGINT" property="companyId"/>
+        <result column="work_area_id" jdbcType="BIGINT" property="workAreaId"/>
+        <result column="join_time" jdbcType="DATE" property="joinTime"/>
+        <result column="leave_time" jdbcType="DATE" property="leaveTime"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_user" jdbcType="VARCHAR" property="createUser"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+        <result column="is_delete" jdbcType="BIT" property="isDelete"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, username, identify, phone, email, gender, age, `password`, salt, super_id, company_id,
     workarea_id, join_time, leave_time, create_time, create_user, update_time, update_user,
     is_delete
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from user
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from user
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.aku.attendance.common.model.User" useGeneratedKeys="true">
-    insert into user (username, identify, phone,
-      email, gender, age,
-      `password`, salt, super_id,
-      company_id, workarea_id, join_time,
-      leave_time, create_time, create_user,
-      update_time, update_user, is_delete
-      )
-    values (#{username,jdbcType=VARCHAR}, #{identify,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
-      #{email,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, #{age,jdbcType=INTEGER},
-      #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{superId,jdbcType=BIGINT},
-      #{companyId,jdbcType=BIGINT}, #{workareaId,jdbcType=BIGINT}, #{joinTime,jdbcType=DATE},
-      #{leaveTime,jdbcType=DATE}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR},
-      #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, #{isDelete,jdbcType=BIT}
-      )
-  </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.aku.attendance.common.model.User" useGeneratedKeys="true">
-    insert into user
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="username != null">
-        username,
-      </if>
-      <if test="identify != null">
-        identify,
-      </if>
-      <if test="phone != null">
-        phone,
-      </if>
-      <if test="email != null">
-        email,
-      </if>
-      <if test="gender != null">
-        gender,
-      </if>
-      <if test="age != null">
-        age,
-      </if>
-      <if test="password != null">
-        `password`,
-      </if>
-      <if test="salt != null">
-        salt,
-      </if>
-      <if test="superId != null">
-        super_id,
-      </if>
-      <if test="companyId != null">
-        company_id,
-      </if>
-      <if test="workareaId != null">
-        workarea_id,
-      </if>
-      <if test="joinTime != null">
-        join_time,
-      </if>
-      <if test="leaveTime != null">
-        leave_time,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="createUser != null">
-        create_user,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
-      <if test="updateUser != null">
-        update_user,
-      </if>
-      <if test="isDelete != null">
-        is_delete,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="identify != null">
-        #{identify,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null">
-        #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="gender != null">
-        #{gender,jdbcType=INTEGER},
-      </if>
-      <if test="age != null">
-        #{age,jdbcType=INTEGER},
-      </if>
-      <if test="password != null">
-        #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="salt != null">
-        #{salt,jdbcType=VARCHAR},
-      </if>
-      <if test="superId != null">
-        #{superId,jdbcType=BIGINT},
-      </if>
-      <if test="companyId != null">
-        #{companyId,jdbcType=BIGINT},
-      </if>
-      <if test="workareaId != null">
-        #{workareaId,jdbcType=BIGINT},
-      </if>
-      <if test="joinTime != null">
-        #{joinTime,jdbcType=DATE},
-      </if>
-      <if test="leaveTime != null">
-        #{leaveTime,jdbcType=DATE},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createUser != null">
-        #{createUser,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateUser != null">
-        #{updateUser,jdbcType=VARCHAR},
-      </if>
-      <if test="isDelete != null">
-        #{isDelete,jdbcType=BIT},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aku.attendance.common.model.User">
-    update user
-    <set>
-      <if test="username != null">
-        username = #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="identify != null">
-        identify = #{identify,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null">
-        phone = #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        email = #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="gender != null">
-        gender = #{gender,jdbcType=INTEGER},
-      </if>
-      <if test="age != null">
-        age = #{age,jdbcType=INTEGER},
-      </if>
-      <if test="password != null">
-        `password` = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="salt != null">
-        salt = #{salt,jdbcType=VARCHAR},
-      </if>
-      <if test="superId != null">
-        super_id = #{superId,jdbcType=BIGINT},
-      </if>
-      <if test="companyId != null">
-        company_id = #{companyId,jdbcType=BIGINT},
-      </if>
-      <if test="workareaId != null">
-        workarea_id = #{workareaId,jdbcType=BIGINT},
-      </if>
-      <if test="joinTime != null">
-        join_time = #{joinTime,jdbcType=DATE},
-      </if>
-      <if test="leaveTime != null">
-        leave_time = #{leaveTime,jdbcType=DATE},
-      </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createUser != null">
-        create_user = #{createUser,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateUser != null">
-        update_user = #{updateUser,jdbcType=VARCHAR},
-      </if>
-      <if test="isDelete != null">
-        is_delete = #{isDelete,jdbcType=BIT},
-      </if>
-    </set>
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.aku.attendance.common.model.User">
-    update user
-    set username = #{username,jdbcType=VARCHAR},
-      identify = #{identify,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
-      gender = #{gender,jdbcType=INTEGER},
-      age = #{age,jdbcType=INTEGER},
-      `password` = #{password,jdbcType=VARCHAR},
-      salt = #{salt,jdbcType=VARCHAR},
-      super_id = #{superId,jdbcType=BIGINT},
-      company_id = #{companyId,jdbcType=BIGINT},
-      workarea_id = #{workareaId,jdbcType=BIGINT},
-      join_time = #{joinTime,jdbcType=DATE},
-      leave_time = #{leaveTime,jdbcType=DATE},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      create_user = #{createUser,jdbcType=VARCHAR},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      update_user = #{updateUser,jdbcType=VARCHAR},
-      is_delete = #{isDelete,jdbcType=BIT}
-    where id = #{id,jdbcType=BIGINT}
-  </update>
+    </sql>
 </mapper>

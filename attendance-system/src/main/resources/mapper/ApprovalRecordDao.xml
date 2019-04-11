@@ -13,7 +13,7 @@
         <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
         <result column="is_delete" jdbcType="BIT" property="isDelete"/>
     </resultMap>
-    <sql id="Example_Where_Clause">
+ <!--   <sql id="Example_Where_Clause">
         <where>
             <foreach collection="oredCriteria" item="criteria" separator="or">
                 <if test="criteria.valid">
@@ -72,7 +72,7 @@
                 </if>
             </foreach>
         </where>
-    </sql>
+    </sql>-->
  <!--   <sql id="Base_Column_List">
         id, approval_id, description, reply_desc, approval_status, create_time, create_user,
     update_time, update_user, is_delete

@@ -1,4 +1,4 @@
-package com.aku.attendance.api.config;
+package com.aku.attendance.framework.config;
 
 import com.baomidou.mybatisplus.core.injector.ISqlInjector;
 import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;

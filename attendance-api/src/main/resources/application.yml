@@ -55,4 +55,4 @@ mybatis-plus:
       db-type: mysql
   #  mapper-locations: classpath*:mapping/*.xml
   type-aliases-package: com.aku.attendance.common.model
-  mapper-locations: classpath*:*Mapper/*.xml
+#  mapper-locations: classpath*:**/mapper/Mapper/*.xml

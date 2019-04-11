@@ -24,7 +24,7 @@
         `scope`, create_time, create_user, update_time, update_name, is_delete, manager
     </sql>
 
-    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.aku.attendance.common.model.WorkArea"
+    <!--<insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.aku.attendance.common.model.WorkArea"
             useGeneratedKeys="true">
         insert into work_area (work_area_name, company_id, latitude,
                                longitude, province, city,
@@ -36,5 +36,5 @@
                 #{region,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{scope,jdbcType=INTEGER},
                 #{createTime,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP},
                 #{updateName,jdbcType=VARCHAR}, #{isDelete,jdbcType=BIT}, #{manager,jdbcType=VARCHAR})
-    </insert>
+    </insert>-->
 </mapper>

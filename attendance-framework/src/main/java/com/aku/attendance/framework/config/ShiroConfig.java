@@ -1,4 +1,4 @@
-package com.aku.attendance.api.config;
+package com.aku.attendance.framework.config;
 
 /**
  * <p>

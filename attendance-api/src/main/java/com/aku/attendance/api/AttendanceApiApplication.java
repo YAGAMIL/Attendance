@@ -2,8 +2,7 @@ package com.aku.attendance.api;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 
 /**
@@ -12,8 +11,9 @@ import org.springframework.cache.annotation.EnableCaching;
  * @author <a href="mailto: Tablo_Jhin1996@outlook.com">Tablo</a>
  * @version 1.0
  */
-@EnableCaching
-@SpringBootApplication(scanBasePackages = "com.aku.attendance")
+//@EnableCaching
+//@SpringBootApplication
+@EnableAutoConfiguration
 @MapperScan("com.aku.attendance.system.dao")
 public class AttendanceApiApplication {
 

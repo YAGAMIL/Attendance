@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import lombok.experimental.Accessors;
 
 /**
  * Description:用户实体类 Created on 2019/3/19 0019 20:22
@@ -13,6 +14,7 @@ import lombok.ToString;
  * @author <a href="mailto: Tablo_Jhin1996@outlook.com">Tablo</a>
  * @version 1.0
  */
+@Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString(callSuper = true)

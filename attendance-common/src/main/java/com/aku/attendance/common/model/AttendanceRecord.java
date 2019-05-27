@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.experimental.Accessors;
 
 /**
  * Description: 考勤记录表，记录签到签退 Created on 2019/4/3 0003 20:33
@@ -13,6 +14,7 @@ import lombok.ToString;
  * @author <a href="mailto: Tablo_Jhin1996@outlook.com">Tablo</a>
  * @version 1.0
  */
+@Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString(callSuper = true)

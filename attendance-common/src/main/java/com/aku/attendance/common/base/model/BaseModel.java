@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
  * @author <a href="mailto: Tablo_Jhin1996@outlook.com">Tablo</a>
  * @version 1.0
  */
+@Accessors(chain = true)
 @Data
 @ApiModel
 public class BaseModel implements Serializable {

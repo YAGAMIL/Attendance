@@ -19,6 +19,7 @@
             <artifactId>attendance-framework</artifactId>
             <version>${attendance.version}</version>
         </dependency>
+        <!-- -->
         <dependency>
             <groupId>cn.afterturn</groupId>
             <artifactId>easypoi-base</artifactId>

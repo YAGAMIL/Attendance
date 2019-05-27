@@ -5,15 +5,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.stereotype.Service;
 
 /**
- * <p>
- * Description:公告接口
- * Program:Attendance
- * </p>
- * Created on 2019-04-04 19:10
+ * Description:公告接口 Program:Attendance Created on 2019-04-04 19:10
  *
  * @author <a href="mailto: Tablo_Jhin1996@outlook.com">Tablo/a>
  * @version 1.0
  */
 @Service
-public interface IBulletinService extends IService<Bulletin> {
-}
+public interface IBulletinService extends IService<Bulletin> {}

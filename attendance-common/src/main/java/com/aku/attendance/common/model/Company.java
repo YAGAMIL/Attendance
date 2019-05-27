@@ -2,10 +2,7 @@ package com.aku.attendance.common.model;
 
 import com.aku.attendance.common.base.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 /**
  * Description:公司 Created on 2019/4/3 0003 20:42
@@ -16,11 +13,12 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString(callSuper = true)
-@NoArgsConstructor
+@RequiredArgsConstructor(staticName = "of")
 @TableName("company")
 public class Company extends BaseModel {
 
   /** 公司名称 */
+  @NonNull
   private String companyName;
 
   /** 公司图标 */

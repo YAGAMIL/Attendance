@@ -35,15 +35,15 @@ public interface IUserService extends IService<User> {
    */
   boolean modifyUser(User user);
 
-    /**
-     * Author: Tablo
-     *
-     * <p>Description:[判定合法性]
-     *
-     * <p>Created on 15:09 2019/4/5 0005
-     *
-     * @param user 用户信息
-     * @return boolean
-     */
-    boolean checkUser(User user);
+  /**
+   * Author: Tablo
+   *
+   * <p>Description:[判定合法性]
+   *
+   * <p>Created on 15:09 2019/4/5 0005
+   *
+   * @param user 用户信息
+   * @return boolean
+   */
+  boolean checkUser(User user);
 }

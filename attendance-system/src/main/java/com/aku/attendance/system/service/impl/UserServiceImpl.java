@@ -6,6 +6,7 @@ package com.aku.attendance.system.service.impl;
         import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
         import com.baomidou.mybatisplus.core.metadata.TableFieldInfo;
         import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+        import lombok.extern.slf4j.Slf4j;
         import org.springframework.stereotype.Service;
 
 /**
@@ -15,6 +16,7 @@ package com.aku.attendance.system.service.impl;
  * @version 1.0
  */
 @Service
+@Slf4j
 public class UserServiceImpl extends ServiceImpl<UserDao, User> implements IUserService {
   @Override
   public boolean newStaff(User user) {

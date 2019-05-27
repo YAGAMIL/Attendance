@@ -53,6 +53,5 @@ mybatis-plus:
       logic-delete-value: 0
       logic-not-delete-value: 1
       db-type: mysql
-  #  mapper-locations: classpath*:mapping/*.xml
-  type-aliases-package: com.aku.attendance.common.model
-#  mapper-locations: classpath*:**/mapper/Mapper/*.xml
+  mapper-locations: classpath*:mapper/*.xml
+#  type-aliases-package: com.aku.attendance.common.model
